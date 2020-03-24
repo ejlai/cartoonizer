@@ -12,10 +12,15 @@ def cartoonize(image):
     convert image into cartoon-like image
 
     image: input PIL image
-    """
-
+   
     output = np.array(image)
-    x, y, c = output.shape
+    #add error handler:  ValueError: Image must have exactly 3 dimensions!
+    if output.ndim == 3:
+        x, y, c = output.shape
+    elif output.ndim != 3:
+        raise ValueError(
+            'Image must have exactly 3 dimensions!')
+    
     # hists = []
     for i in range(c):
         output[:, :, i] = cv2.bilateralFilter(output[:, :, i], 5, 50, 50)
