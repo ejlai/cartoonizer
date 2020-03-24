@@ -4,6 +4,13 @@ import cv2
 import os
 import time
 
+"""
+For window user
+in_dir = r'imgs\input'
+out_dir = in_dir + '\\' + 'out'
+
+"""
+
 in_dir = './imgs/input'
 out_dir = './imgs/output'
 
