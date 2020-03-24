@@ -7,8 +7,12 @@ import time
 in_dir = './imgs/input'
 out_dir = './imgs/output'
 
-os.mkdir(out_dir)
-
+#add error handler
+try:
+    os.mkdir(out_dir)
+except OSError as err:
+    print(err)
+    
 for f in os.listdir(in_dir):
     image = cv2.imread(os.path.join(in_dir, f))
     print('==============')
